@@ -1,0 +1,152 @@
+body{
+  background: #eee;
+}
+
+.App{
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.nav-bar {
+  float: flex;
+  margin-top: 20px;
+  margin-left: 20px;
+  padding: 10px;
+  text-align: left;
+}
+
+.nav-button {
+  margin-right: 20px;
+}
+
+
+.search-bar {
+  margin-left: 30px;
+}
+
+.nav-buttons {
+  border-color: blue;
+  text-decoration: none;
+  color: black; 
+  font-size: 25px;
+  margin-right: 20px;
+  float: left;
+}
+
+
+.logout-button, .collection-button , .login-button {
+  border-color: blue;
+  text-decoration: none;
+  color: black; 
+  font-size: 25px;
+  margin-right: 20px;
+  float: right;
+}
+
+
+.search-bar input{
+    width: 95%;
+    position: relative;
+    display: flex; 
+    margin-top: 10px;
+    border: 3px solid #00B4CC;
+    padding: 5px;
+    height: 25px;
+    border-radius: 5px 5px 5px 5px;
+    outline: none;
+    color: #9DBFAF; 
+}
+
+.movie-list, .tvshow-list, .collection-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 20px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.movie-item, .tvshow-item, .collection-item {
+  border-style: solid;
+  border-color: #a3c3d6;
+  margin-bottom: 10px;
+  font-weight: bold;
+  flex: 0 1 32%;
+  font-size: 15px;
+}
+
+
+
+a{
+  text-decoration:none;
+  color: black;
+}
+
+.movie-details, details{
+  text-align: left;
+  font-size: 15px;
+  color: #494880;
+}
+
+.movie-title, .details-name {
+  font-size: 35px;
+  color: #1e1d42;
+  margin-top: 20px;
+}
+
+.movie-preview, .details-preview {
+  margin-left: auto;
+  margin-right: auto;
+  width: 60%;
+}
+
+.login-page {
+  width: 850px;
+  display: flex;
+  justify-content: space-between;
+  margin: 30px auto;
+}
+
+.group {
+  position: relative;
+  margin: 15px 0;
+}
+
+.form-input {
+    background: none;
+    background-color: white;
+    font-size: 18px;
+    padding: 5px;
+    display: block;
+    width: 100%;
+    border: none;
+    border-radius: 0;
+    border-bottom: 1px solid ;
+    margin: 5px 0;
+  }
+  
+
+.form-label {
+    font-size: 16px;
+    font-weight: normal;
+    pointer-events: none;
+    text-transform: capitalize;
+
+  }
+.sign-in {
+    width: 380px;
+    display: flex;
+    flex-direction: column;
+    }
+.sign-up {
+      display: flex;
+      flex-direction: column;
+      width: 380px;
+    }
+.remove-item{
+  border-width: 0px;
+  margin-left: 19em;
+}
+

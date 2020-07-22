@@ -1,0 +1,5 @@
+{
+    "mongoURI": "mongodb+srv://movie-search:501763aa@cluster0.o8psb.mongodb.net/movie-database?retryWrites=true&w=majority",
+    "jwtSecret": "sl_myJwtSecret",
+    "PORT": "5000"
+}

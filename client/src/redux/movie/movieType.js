@@ -1,0 +1,2 @@
+export const FETCH_MOVIES = "FETCH_MOVIES";
+export const MOVIE_SEARCH = "MOVIE_SEARCH";

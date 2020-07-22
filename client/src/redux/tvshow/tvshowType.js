@@ -1,0 +1,2 @@
+export const FETCH_TVSHOW = 'FETCH_TVSHOW';
+export const TVSHOW_SEARCH = 'TVSHOW_SEARCH';
