@@ -28,7 +28,7 @@ mongoose
     .then(() => console.log('MongoDB Connected...'))
     .catch(err => console.log(err));
 
-app.use('/api/collection', collectionRoutes);
+app.use('/api', collectionRoutes);
 app.use('/api/auth', authRoutes);
 
 if (process.env.NODE_ENV === 'production') {

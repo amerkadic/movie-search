@@ -13,6 +13,14 @@ const CollectionSchema = new Schema({
         type: String,
         required: true
     },
+    type: {
+        type: String,
+        required: true
+    },
+    itemid: {
+        type: String,
+        required: true
+    },
     date: {
         type: Date,
         default: Date.now

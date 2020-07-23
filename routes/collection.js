@@ -14,16 +14,39 @@ router.get('/', auth, async (req, res) => {
     }
 });
 
-router.post('/add', auth, async (req, res) => {
+router.post('/tvshow/add', auth, async (req, res) => {
     const newItem = new Collection({
         userid: req.user.id,
         name: req.body.name,
-        poster: req.body.poster
+        poster: req.body.poster,
+        type: req.body.type,
+        itemid: req.body.itemid
     });
-
+    const items = await Collection.findOne({ itemid: req.body.itemid, userid: req.user.id });
     try {
-        const item = await newItem.save();
-        res.status(200).json(item);
+        if (items === null) {
+            const item = await newItem.save();
+            res.status(200).json(item);
+        }
+    } catch (e) {
+        res.status(400).json({ msg: e.message });
+    }
+});
+
+router.post('/movie/add', auth, async (req, res) => {
+    const newItem = new Collection({
+        userid: req.user.id,
+        name: req.body.name,
+        poster: req.body.poster,
+        type: req.body.type,
+        itemid: req.body.itemid
+    });
+    const items = await Collection.findOne({ itemid: req.body.itemid, userid: req.user.id });
+    try {
+        if (items === null) {
+            const item = await newItem.save();
+            res.status(200).json(item);
+        }
     } catch (e) {
         res.status(400).json({ msg: e.message });
     }
