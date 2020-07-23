@@ -1,5 +1,5 @@
 import React from "react"
-import { Link } from "react-router-dom"
+import { NavLink, Link } from "react-router-dom"
 import { useDispatch, useSelector } from 'react-redux';
 import { logout } from "../redux/auth/authAction";
 
@@ -18,15 +18,15 @@ const NavBar = () => {
   const userLinks = (
     <div>
       <Link className="logout-button" to="/" onClick={handleLogout}>Logout</Link>
-      <Link className="collection-button" to="/mycollection">My Collection</Link>
+      <NavLink className="collection-button" activeStyle={{ color: 'red' }} to="/mycollection">My Collection</NavLink>
     </div>
   );
 
   return (
     <div className="nav-bar">
       <div className="nav-buttons">
-        <Link className="nav-button" to="/movies">Movies</Link>
-        <Link className="nav-button" to="/">TV Shows</Link>
+        <NavLink className="nav-button" activeStyle={{ color: 'red' }} to="/movies">Movies</NavLink>
+        <NavLink className="nav-button" activeStyle={{ color: 'red' }} to="/tvshows">TV Shows</NavLink>
       </div>
       {auth.isAuthenticated ? userLinks : guestLinks}
     </div>

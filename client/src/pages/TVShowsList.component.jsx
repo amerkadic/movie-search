@@ -5,18 +5,21 @@ import { Link } from "react-router-dom";
 import NavBar from "../components/nav-bar.component"
 import Card from "../components/card.component"
 import Search from "../components/search.component";
+import { Helmet } from "react-helmet";
 
 const TVShowsList = () => {
   const tvshow = useSelector((state) => state.tvshows.tvshows);
 
   return (
     <div>
+      <Helmet><title>TV Shows</title></Helmet>
+
       <NavBar />
       <Search />
       <div className="tvshow-list">
         {tvshow.map(tv => (
           <div key={tv.id} className="tvshow-item">
-            <Link to={'/api/collection/' + tv.id}>
+            <Link to={'/api/tvshow/' + tv.id}>
               <Card
                 title={tv.name}
                 image={tv.poster_path ?

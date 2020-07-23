@@ -4,7 +4,7 @@ import { tokenConfig } from '../auth/authAction';
 
 export const getCollection = () => (dispatch, getState) => {
     axios
-        .get('api/collection', tokenConfig(getState))
+        .get('api', tokenConfig(getState))
         .then(res =>
             dispatch({
                 type: GET_ITEMS,
@@ -13,8 +13,8 @@ export const getCollection = () => (dispatch, getState) => {
         );
 };
 
-export const addItem = (name, poster) => (dispatch, getState) => {
-    const body = JSON.stringify({ name, poster });
+export const addItem = (name, poster, type, itemid) => (dispatch, getState) => {
+    const body = JSON.stringify({ name, poster, type, itemid });
     axios
         .post('add', body, tokenConfig(getState))
         .then(res =>
@@ -27,7 +27,7 @@ export const addItem = (name, poster) => (dispatch, getState) => {
 
 export const deleteItem = (id) => (dispatch, getState) => {
     axios
-        .delete(`api/collection/${id}`, tokenConfig(getState))
+        .delete(`api/${id}`, tokenConfig(getState))
         .then(res =>
             dispatch({
                 type: DELETE_ITEM,

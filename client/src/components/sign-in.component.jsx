@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { useAlert } from "react-alert";
 
 import FormInput from './form-input.component';
 import { login } from '../redux/auth/authAction';
@@ -8,11 +9,22 @@ import { login } from '../redux/auth/authAction';
 const SignIn = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const auth = useSelector((state) => state.auth);
+    const alert = useAlert();
     const dispatch = useDispatch();
 
     const handleSubmit = e => {
         e.preventDefault();
-        dispatch(login(email, password))
+        dispatch(login(email, password));
+        auth.isAuthenticated ?
+            alert.show('Logged in', {
+                timeout: 2000,
+                type: 'success',
+            }) :
+            alert.show('Fail to log in', {
+                timeout: 2000,
+                type: 'error',
+            })
     };
 
     const handleChangeEmail = e => {
@@ -22,7 +34,6 @@ const SignIn = () => {
     const handleChangePassword = e => {
         setPassword(e.target.value)
     };
-
 
     return (
         <div className='sign-in'>

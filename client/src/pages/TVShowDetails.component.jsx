@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react"
 import ReactPlayer from "react-player";
 
 import Details from "../components/details.component";
+import { Helmet } from "react-helmet";
 
 const TVShowDetails = (props) => {
   const [detail, setDetail] = useState([]);
@@ -24,14 +25,13 @@ const TVShowDetails = (props) => {
       );
   }, [id]);
 
-  const handleBack = () => {
-    props.history.goBack();
-  }
 
   return (
     <div className="movie-details">
-      <button onClick={handleBack}>&larr; Back</button>
-      <Details name={detail.name} trailer={trailer} detail={detail} />
+      <Helmet>
+        <title>TV Show details</title>
+      </Helmet>
+      <Details name={detail.name} type="tvshow" trailer={trailer} detail={detail} />
     </div>
   )
 }
