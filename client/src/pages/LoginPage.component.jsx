@@ -11,7 +11,6 @@ const LoginPage = () => {
             <Helmet>
                 <title>Login page</title>
             </Helmet>
-
             <NavBar />
             <div className="login-page">
                 <SignIn />
