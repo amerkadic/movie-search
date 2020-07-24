@@ -18,15 +18,15 @@ const NavBar = () => {
   const userLinks = (
     <div>
       <Link className="logout-button" to="/" onClick={handleLogout}>Logout</Link>
-      <NavLink className="collection-button" activeStyle={{ color: 'red' }} to="/mycollection">My Collection</NavLink>
-    </div>
+      <NavLink className="collection-button" activeStyle={{ fontSize: 35, fontWeight: "bold", color: 'red' }} to="/mycollection">My Collection</NavLink>
+    </div >
   );
 
   return (
     <div className="nav-bar">
       <div className="nav-buttons">
-        <NavLink className="nav-button" activeStyle={{ color: 'red' }} to="/movies">Movies</NavLink>
-        <NavLink className="nav-button" activeStyle={{ color: 'red' }} to="/tvshows">TV Shows</NavLink>
+        <NavLink className="nav-button" activeStyle={{ fontSize: 35, fontWeight: "bold", color: 'red' }} to="/movies">Movies</NavLink>
+        <NavLink className="nav-button" activeStyle={{ fontSize: 35, fontWeight: "bold", color: 'red' }} to="/tvshows">TV Shows</NavLink>
       </div>
       {auth.isAuthenticated ? userLinks : guestLinks}
     </div>

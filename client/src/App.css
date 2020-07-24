@@ -154,6 +154,18 @@ a{
   width: 60%;
 }
 
+.cover-img {
+  transition: transform 0.2s ease-in-out;
+}
+
+.cover-img:hover{
+  transform: scale(1.1);
+  margin-bottom: 30px;
+  border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px 5px rgba(0, 0, 0, 0.3);
+}
+
 .login-page {
   width: 850px;
   display: flex;

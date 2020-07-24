@@ -1,68 +1,50 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# MovieDB Search App 
 
-## Available Scripts
+MovieDB Search App  is a responsive MERN app by using Redux, React hooks, JWT, etc. that load data via [The Movie Database (TMDb) API](https://www.themoviedb.org/documentation/api).
 
-In the project directory, you can run:
+![]()
 
-### `npm run dev`
+## Demo
+[MovieDB - Live DEMO](https://cryptic-basin-22252.herokuapp.com/)
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Installation
+[node.js](http://nodejs.org/download/) is required to get ``npm``.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+If you would like to download the code and try it for yourself:
 
-### `npm test`
+1. Clone the repo: `git clone https://github.com/amerkadic/movie-search.git`
+2. Install packages: `npm install` and `npm run client-install`
+3. Run app with `npm run dev`
+4. Open your browser at: `http://localhost:3000`
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+## Tools
+Key tools used in this React project are:
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+| Tool             | Description   |
+| :-------------:|--------------|
+| [React](https://reactjs.org/) | A JavaScript library for building user interfaces |
+| [Nodejs](https://nodejs.org/en/) |  JavaScript runtime built on Chrome's V8 JavaScript engine |
+| [Express](https://expressjs.com/) | Node.js web application framework that provides a robust set of features for web applications |
+| [Mongoose](https://mongoosejs.com/) | Provides a straight-forward, schema-based solution to model your application data |
+| [JSON Web Token](https://jwt.io/) | Compact URL-safe means of representing claims to be transferred between two parties |
+| [Redux](https://redux.js.org/) | A predictable state container for JavaScript apps. |
+| [react-router](https://reactrouter.com/)) | Standard routing library for React |
+| [react-alert](https://www.npmjs.com/package/react-alert) |  A React component for custom alerts |
+| [react-player](https://www.npmjs.com/package/react-player) | A React component for playing YouTube videos |
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## Browser Support
+This project makes usage of the Fetch API, utilising a polyfill for older browsers.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Chrome 42+
+- Firefox 39+
+- Safari 10+ (with polyfill)
+- Internet Explorer 11+ (with polyfill)
+- Edge 14+
 
-### `npm run eject`
+## Node.js
+Supports LTS version (v6).
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Author
+[Amer Kadić](https://github.com/amerkadic)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
