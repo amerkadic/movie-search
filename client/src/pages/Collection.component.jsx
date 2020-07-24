@@ -31,7 +31,7 @@ const Collection = () => {
             (
                 collection.reverse().map(item => (
                     <div key={item._id} className="collection-item">
-                        <Link to={item.type === "tvshow" ? ('/api/collection/' + item.itemid) : ('/movie/' + item.itemid)}>
+                        <Link to={item.type === "tvshow" ? ('/api/tvshow/' + item.itemid) : ('/api/movie/' + item.itemid)}>
                             <Card
                                 title={item.name}
                                 image={item.poster ?

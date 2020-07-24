@@ -13,9 +13,10 @@ MovieDB Search App  is a responsive MERN app by using Redux, React hooks, JWT, e
 If you would like to download the code and try it for yourself:
 
 1. Clone the repo: `git clone https://github.com/amerkadic/movie-search.git`
-2. Install packages: `npm install` and `npm run client-install`
-3. Run app with `npm run dev`
-4. Open your browser at: `http://localhost:3000`
+2. Install packages: Server `npm install`  Client `cd client`  and `npm i`
+3. Return to root folder `cd ..`
+4. Run app with `npm run dev`
+5. Open your browser at: `http://localhost:3000`
 
 
 ## Tools
