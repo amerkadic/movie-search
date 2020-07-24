@@ -29,7 +29,7 @@ Key tools used in this React project are:
 | [Mongoose](https://mongoosejs.com/) | Provides a straight-forward, schema-based solution to model your application data |
 | [JSON Web Token](https://jwt.io/) | Compact URL-safe means of representing claims to be transferred between two parties |
 | [Redux](https://redux.js.org/) | A predictable state container for JavaScript apps. |
-| [react-router](https://reactrouter.com/)) | Standard routing library for React |
+| [react-router](https://reactrouter.com/) | Standard routing library for React |
 | [react-alert](https://www.npmjs.com/package/react-alert) |  A React component for custom alerts |
 | [react-player](https://www.npmjs.com/package/react-player) | A React component for playing YouTube videos |
 
