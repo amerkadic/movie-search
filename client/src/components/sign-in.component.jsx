@@ -1,31 +1,43 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useAlert } from "react-alert";
+import { useHistory } from "react-router-dom";
 
 import FormInput from './form-input.component';
 import { login } from '../redux/auth/authAction';
 
 
+
 const SignIn = () => {
+    const history = useHistory();
     const [email, setEmail] = useState("");
+    const dispatch = useDispatch();
     const [password, setPassword] = useState("");
     const auth = useSelector((state) => state.auth);
     const alert = useAlert();
-    const dispatch = useDispatch();
+    const [initialRender, setInitialRender] = useState(true);
 
-    const handleSubmit = e => {
+    const handleSubmit = async e => {
         e.preventDefault();
-        dispatch(login(email, password));
-        auth.isAuthenticated ?
-            alert.show('Logged in', {
-                timeout: 2000,
-                type: 'success',
-            }) :
-            alert.show('Fail to log in', {
-                timeout: 2000,
-                type: 'error',
-            })
+        await dispatch(login(email, password));
+        history.push("/");
     };
+
+    useEffect(() => {
+        console.log(auth);
+        if (!initialRender) {
+            setInitialRender(false);
+            auth.isAuthenticated ?
+                alert.show('Logged in', {
+                    timeout: 2000,
+                    type: 'success',
+                }) :
+                alert.show('Fail to log in', {
+                    timeout: 2000,
+                    type: 'error',
+                })
+        }
+    }, [auth.isAuthenticated]);
 
     const handleChangeEmail = e => {
         setEmail(e.target.value)

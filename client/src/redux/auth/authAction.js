@@ -29,7 +29,7 @@ export const loadUser = () => (dispatch, getState) => {
 export const register = (name, email, password) => (
     dispatch
 ) => {
-    const body = JSON.stringify({ name, email, password });
+    const body = ({ name, email, password });
     axios.defaults.headers.post['Content-Type'] = 'application/json'
     axios
         .post('/api/auth/register', body)
@@ -49,7 +49,7 @@ export const register = (name, email, password) => (
 export const login = (email, password) => (
     dispatch
 ) => {
-    const body = JSON.stringify({ email, password });
+    const body = ({ email, password });
     axios.defaults.headers.post['Content-Type'] = 'application/json'
     axios
         .post('api/auth/login', body)
@@ -60,7 +60,6 @@ export const login = (email, password) => (
             })
         )
         .catch(err => {
-            console.log(err.response.data, err.response.status);
             dispatch({
                 type: LOGIN_FAIL
             });
@@ -73,7 +72,7 @@ export const logout = () => {
     };
 };
 export const tokenConfig = (getState) => {
-    const token = getState().auth.token;
+    const token = localStorage.getItem('token');
     const config = {
         headers: {
             'Content-type': 'application/json'

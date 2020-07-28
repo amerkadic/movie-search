@@ -20,7 +20,7 @@ const Details = ({ name, type, trailer, detail }) => {
     }
 
     const handleBack = () => {
-        history.push("/" + type + "s");
+        history.goBack();
     }
 
     return (

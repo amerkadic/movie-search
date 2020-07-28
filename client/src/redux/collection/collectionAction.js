@@ -1,10 +1,11 @@
 import axios from 'axios';
 import { GET_ITEMS, ADD_ITEM, DELETE_ITEM, ITEMS_LOADING } from './collectionType';
 import { tokenConfig } from '../auth/authAction';
+import { API } from "../../config";
 
 export const getCollection = () => (dispatch, getState) => {
     axios
-        .get('api', tokenConfig(getState))
+        .get(`${API}/collection`, tokenConfig(getState))
         .then(res =>
             dispatch({
                 type: GET_ITEMS,
@@ -14,9 +15,9 @@ export const getCollection = () => (dispatch, getState) => {
 };
 
 export const addItem = (name, poster, type, itemid) => (dispatch, getState) => {
-    const body = JSON.stringify({ name, poster, type, itemid });
+    const body = ({ name, poster, type, itemid });
     axios
-        .post('add', body, tokenConfig(getState))
+        .post(`${API}/collection/add`, body, tokenConfig(getState))
         .then(res =>
             dispatch({
                 type: ADD_ITEM,
@@ -27,7 +28,7 @@ export const addItem = (name, poster, type, itemid) => (dispatch, getState) => {
 
 export const deleteItem = (id) => (dispatch, getState) => {
     axios
-        .delete(`api/${id}`, tokenConfig(getState))
+        .delete(`${API}/collection/delete/${id}`, tokenConfig(getState))
         .then(res =>
             dispatch({
                 type: DELETE_ITEM,

@@ -1,18 +1,21 @@
 import React, { useEffect } from "react"
 import { useSelector, useDispatch } from 'react-redux';
+import { Helmet } from "react-helmet";
+import { useAlert } from 'react-alert'
+import { Link } from "react-router-dom";
 
 import NavBar from "../components/nav-bar.component"
 import Card from "../components/card.component"
 import { getCollection, deleteItem } from "../redux/collection/collectionAction";
 import removeButton from "../assets/close.png";
-import { Helmet } from "react-helmet";
-import { useAlert } from 'react-alert'
-import { Link } from "react-router-dom";
+import { loadUser } from "../redux/auth/authAction";
+
 
 const Collection = () => {
     const collection = useSelector((state) => state.collection.items);
     const alert = useAlert()
     const dispatch = useDispatch();
+    dispatch(loadUser());
 
     useEffect(() => {
         dispatch(getCollection());

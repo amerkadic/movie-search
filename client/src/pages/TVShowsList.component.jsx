@@ -1,11 +1,11 @@
 import React from "react"
 import { useSelector } from 'react-redux';
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 import NavBar from "../components/nav-bar.component"
 import Card from "../components/card.component"
 import Search from "../components/search.component";
-import { Helmet } from "react-helmet";
 
 const TVShowsList = () => {
   const tvshow = useSelector((state) => state.tvshows.tvshows);
@@ -19,7 +19,7 @@ const TVShowsList = () => {
       <div className="tvshow-list">
         {tvshow.map(tv => (
           <div key={tv.id} className="tvshow-item">
-            <Link to={'/api/tvshow/' + tv.id}>
+            <Link to={'/tvshow/' + tv.id}>
               <Card
                 title={tv.name}
                 image={tv.poster_path ?

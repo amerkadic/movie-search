@@ -12,9 +12,9 @@ const SignUp = () => {
     const [confirmPassword, setConfirmPassword] = useState("");
     const dispatch = useDispatch();
 
-    const handleSubmit = e => {
+    const handleSubmit = async e => {
         e.preventDefault();
-        dispatch(register(displayName, email, password));
+        await dispatch(register(displayName, email, password));
         if (password !== confirmPassword) {
             alert("Passwords don't match");
             return;

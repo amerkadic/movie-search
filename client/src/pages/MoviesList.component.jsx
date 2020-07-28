@@ -1,11 +1,11 @@
 import React from "react"
 import { useSelector } from 'react-redux';
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 import NavBar from "../components/nav-bar.component"
 import Card from "../components/card.component"
 import Search from "../components/search.component";
-import { Helmet } from "react-helmet";
 
 const MoviesList = () => {
   const movies = useSelector((state) => state.movies.movies);
@@ -21,7 +21,7 @@ const MoviesList = () => {
       <div className="movie-list">
         {movies.map(movie => (
           <div key={movie.id} className="movie-item">
-            <Link to={'/api/movie/' + movie.id}>
+            <Link to={'/movie/' + movie.id}>
               <Card
                 title={movie.title}
                 image={movie.poster_path ?

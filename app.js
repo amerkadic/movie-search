@@ -6,8 +6,9 @@ import bodyParser from 'body-parser';
 import morgan from 'morgan';
 import config from './config';
 
-import authRoutes from './routes/auth';
-import collectionRoutes from './routes/collection';
+import userRoutes from './routes/user.routes';
+import collectionRoutes from './routes/collection.routes';
+const handleError = require('./middlewares/handleError');
 
 const { MONGO_URI } = config;
 
@@ -28,8 +29,10 @@ mongoose
     .then(() => console.log('MongoDB Connected...'))
     .catch(err => console.log(err));
 
-app.use('/api', collectionRoutes);
-app.use('/api/auth', authRoutes);
+app.use('/api/collection', collectionRoutes);
+app.use('/api/auth', userRoutes);
+
+app.use(handleError);
 
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static('client/build'));
