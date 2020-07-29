@@ -1,16 +1,22 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useAlert } from "react-alert";
+import { useHistory } from "react-router-dom";
 
 import FormInput from './form-input.component';
 import { register } from '../redux/auth/authAction';
 
 
 const SignUp = () => {
+    const history = useHistory();
     const [displayName, setDisplayName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
     const dispatch = useDispatch();
+    const auth = useSelector((state) => state.auth);
+    const alert = useAlert();
+    const [initialRender, setInitialRender] = useState(false);
 
     const handleSubmit = async e => {
         e.preventDefault();
@@ -19,7 +25,28 @@ const SignUp = () => {
             alert("Passwords don't match");
             return;
         }
+        setTimeout(() => {
+            setInitialRender(true);
+        }, 300);
     };
+
+    useEffect(() => {
+        if (initialRender) {
+            if (auth.isAuthenticated) {
+                alert.show('Logged in', {
+                    timeout: 2000,
+                    type: 'success',
+                })
+                history.push('/');
+            }
+            else {
+                alert.show('Fail to log in', {
+                    timeout: 2000,
+                    type: 'error',
+                })
+            }
+        }
+    }, [auth.isAuthenticated, initialRender, alert, history]);
 
     const handleChangeName = e => {
         setDisplayName(e.target.value)

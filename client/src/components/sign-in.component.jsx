@@ -6,8 +6,6 @@ import { useHistory } from "react-router-dom";
 import FormInput from './form-input.component';
 import { login } from '../redux/auth/authAction';
 
-
-
 const SignIn = () => {
     const history = useHistory();
     const [email, setEmail] = useState("");
@@ -15,29 +13,33 @@ const SignIn = () => {
     const [password, setPassword] = useState("");
     const auth = useSelector((state) => state.auth);
     const alert = useAlert();
-    const [initialRender, setInitialRender] = useState(true);
+    const [initialRender, setInitialRender] = useState(false);
 
     const handleSubmit = async e => {
         e.preventDefault();
         await dispatch(login(email, password));
-        history.push("/");
+        setTimeout(() => {
+            setInitialRender(true);
+        }, 300);
     };
 
     useEffect(() => {
-        console.log(auth);
-        if (!initialRender) {
-            setInitialRender(false);
-            auth.isAuthenticated ?
+        if (initialRender) {
+            if (auth.isAuthenticated) {
                 alert.show('Logged in', {
                     timeout: 2000,
                     type: 'success',
-                }) :
+                })
+                history.push('/');
+            }
+            else {
                 alert.show('Fail to log in', {
                     timeout: 2000,
                     type: 'error',
                 })
+            }
         }
-    }, [auth.isAuthenticated]);
+    }, [auth.isAuthenticated, initialRender, alert, history]);
 
     const handleChangeEmail = e => {
         setEmail(e.target.value)
