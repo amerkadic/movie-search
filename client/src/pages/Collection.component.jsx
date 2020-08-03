@@ -33,7 +33,7 @@ const Collection = () => {
         collection.length === 0 ? < h1 > You don't have items in collection...</h1> :
             (
                 collection.reverse().map(item => (
-                    <div key={item._id} className="collection-item">
+                    <div key={item._id} className="collection-item" >
                         <Link to={item.type === "tvshow" ? ('/api/tvshow/' + item.itemid) : ('/api/movie/' + item.itemid)}>
                             <Card
                                 title={item.name}
@@ -42,7 +42,7 @@ const Collection = () => {
                                     ('https://image.tmdb.org/t/p/w300/dykOcAqI01Fci5cKQW3bEUrPWwU.jpg')}
                             />
                         </Link>
-                        <button className="remove-item" onClick={() => handleRemove(item._id)}><img alt="removeButton" src={removeButton}></img></button>
+                        <button className="remove-button" onClick={() => handleRemove(item._id)}><img alt="removeButton" src={removeButton}></img></button>
                     </div>
                 ))
             )

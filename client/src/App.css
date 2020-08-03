@@ -10,46 +10,24 @@ body{
 }
 
 .nav-bar {
-  float: flex;
   margin-top: 20px;
-  margin-left: 20px;
-  padding: 10px;
-  text-align: left;
 }
-
-.nav-button {
-  margin-right: 20px;
-}
-
 
 .search-bar {
   margin-left: 30px;
   margin-top: 30px;
 }
 
-.nav-buttons {
-  border-color: blue;
-  text-decoration: none;
-  color: black; 
-  font-size: 25px;
-  margin-right: 20px;
-  float: left;
-}
 
-
-.logout-button, .collection-button , .login-button {
-  border-color: blue;
-  text-decoration: none;
-  color: black; 
+.logout-button, .collection-button , .login-button, .nav-buttons {
   font-size: 25px;
-  margin-right: 20px;
   float: right;
+  margin-left: 20px;
 }
 
-a:hover {
-  text-decoration: underline;
+.user-buttons {
+  display: flex;
 }
-
 
 .search-bar input{
     width: 95%;
@@ -58,10 +36,11 @@ a:hover {
     margin-top: 10px;
     border: 3px solid #00B4CC;
     padding: 5px;
-    height: 25px;
+    height: 40px;
     border-radius: 5px 5px 5px 5px;
     outline: none;
-    color: #9DBFAF; 
+    color: #10271c; 
+    font-size: x-large;
 }
 
 .movie-list, .tvshow-list, .collection-list {
@@ -87,10 +66,6 @@ a:hover {
  margin-right: auto;
 }
 
-a{
-  text-decoration:none;
-  color: black;
-}
 
 .movie-details, details{
   text-align: left;
@@ -137,7 +112,7 @@ a{
 }
 
 .text-disabled{
-  margin-left: 40%;
+  margin-left: 33%;
   color: black;
   margin-top: 0px;
 }
@@ -209,8 +184,8 @@ a{
       flex-direction: column;
       width: 380px;
     }
-.remove-item{
+.remove-button{
   border-width: 0px;
-  margin-left: 19em;
+  margin-left: 17em;
 }
 

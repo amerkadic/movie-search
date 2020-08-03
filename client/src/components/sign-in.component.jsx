@@ -20,7 +20,7 @@ const SignIn = () => {
         await dispatch(login(email, password));
         setTimeout(() => {
             setInitialRender(true);
-        }, 300);
+        }, 500);
     };
 
     useEffect(() => {
