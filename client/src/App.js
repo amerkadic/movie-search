@@ -1,7 +1,6 @@
 import React from "react"
 import { BrowserRouter, Route, Redirect } from "react-router-dom"
 import "./App.css"
-import { useDispatch } from 'react-redux';
 import { Provider as AlertProvider } from 'react-alert'
 import AlertTemplate from 'react-alert-template-basic'
 
@@ -10,14 +9,11 @@ import Movies from "./pages/MoviesList.component"
 import MovieDetails from "./pages/MovieDetails.component";
 import TVShowDetails from "./pages/TVShowDetails.component";
 import LoginPage from "./pages/LoginPage.component"
-import { loadUser } from "./redux/auth/authAction";
 import Collection from "./pages/Collection.component";
 
 
 function App() {
   localStorage.setItem('mySearchValue', "");
-  const dispatch = useDispatch();
-  dispatch(loadUser());
   return (
     <AlertProvider template={AlertTemplate} >
       <BrowserRouter>

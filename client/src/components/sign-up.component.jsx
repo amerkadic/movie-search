@@ -27,7 +27,7 @@ const SignUp = () => {
         }
         setTimeout(() => {
             setInitialRender(true);
-        }, 500);
+        }, 1000);
     };
 
     useEffect(() => {

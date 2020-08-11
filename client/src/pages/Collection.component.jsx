@@ -15,10 +15,10 @@ const Collection = () => {
     const collection = useSelector((state) => state.collection.items);
     const alert = useAlert()
     const dispatch = useDispatch();
-    dispatch(loadUser());
 
     useEffect(() => {
         dispatch(getCollection());
+        dispatch(loadUser());
     }, [dispatch]);
 
     const handleRemove = (id) => {

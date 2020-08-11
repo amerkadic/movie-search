@@ -1,14 +1,21 @@
-import React from "react"
-import { useSelector } from 'react-redux';
+import React, { useEffect } from "react"
+import { useSelector, useDispatch } from 'react-redux';
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 
 import NavBar from "../components/nav-bar.component"
 import Card from "../components/card.component"
 import Search from "../components/search.component";
+import { loadUser } from "../redux/auth/authAction";
 
 const MoviesList = () => {
   const movies = useSelector((state) => state.movies.movies);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(loadUser());
+  }, [dispatch]);
+
 
   return (
     <div>
