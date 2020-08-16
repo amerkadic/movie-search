@@ -26,6 +26,7 @@ exports.saveItem = async function (userid, name, poster, type, itemid) {
         type,
         itemid
     });
+
     try {
         const item = await newItem.save();
         return item;

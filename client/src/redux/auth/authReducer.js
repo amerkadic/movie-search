@@ -44,6 +44,7 @@ export default function (state = initialState, action) {
         case LOGOUT_SUCCESS:
         case REGISTER_FAIL:
             localStorage.removeItem('token');
+            localStorage.setItem('mySearchValue', "");
             return {
                 ...state,
                 token: null,

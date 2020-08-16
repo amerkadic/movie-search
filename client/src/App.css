@@ -14,7 +14,7 @@ body{
 }
 
 .search-bar {
-  margin-left: 30px;
+  margin-left: 29px;
   margin-top: 30px;
 }
 
@@ -30,7 +30,7 @@ body{
 }
 
 .search-bar input{
-    width: 95%;
+    width: 97%;
     position: relative;
     display: flex; 
     margin-top: 10px;
@@ -59,12 +59,11 @@ body{
   font-weight: bold;
   flex: 0 1 32%;
   font-size: 15px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.collection-item {
- margin-left: auto;
- margin-right: auto;
-}
+
 
 
 .movie-details, details{
@@ -189,3 +188,7 @@ body{
   margin-left: 17em;
 }
 
+.loading-spinner {
+  margin: auto;
+  margin-top: 30%;
+}

@@ -4,24 +4,21 @@ import path from 'path';
 import cors from 'cors';
 import bodyParser from 'body-parser';
 import morgan from 'morgan';
-import config from './config';
+import dotenv from 'dotenv';
 
 import userRoutes from './routes/user.routes';
 import collectionRoutes from './routes/collection.routes';
-const handleError = require('./middlewares/handleError');
+import handleError from "./middlewares/handleError";
 
-const { MONGO_URI } = config;
-
+dotenv.config();
 const app = express();
 
 app.use(cors());
 app.use(morgan('dev'));
 app.use(bodyParser.json());
 
-const db = MONGO_URI;
-
 mongoose
-    .connect(db, {
+    .connect(process.env.MONGO_URI, {
         useNewUrlParser: true,
         useCreateIndex: true,
         useUnifiedTopology: true
@@ -31,7 +28,6 @@ mongoose
 
 app.use('/api/collection', collectionRoutes);
 app.use('/api/auth', userRoutes);
-
 app.use(handleError);
 
 if (process.env.NODE_ENV === 'production') {

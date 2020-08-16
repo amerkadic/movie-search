@@ -11,7 +11,7 @@ const NavigationBar = () => {
   const dispatch = useDispatch();
 
   const style = ({
-    backgroundColor: "#fff",
+    backgroundColor: "#b1cefc",
     borderTopRightRadius: 20,
     borderTopLeftRadius: 20,
     paddingLeft: 10,

@@ -4,6 +4,7 @@ import { tokenConfig } from '../auth/authAction';
 import { API } from "../../config";
 
 export const getCollection = () => (dispatch, getState) => {
+    dispatch(setItemsLoading());
     axios
         .get(`${API}/collection`, tokenConfig(getState))
         .then(res =>

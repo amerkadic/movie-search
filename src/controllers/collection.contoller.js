@@ -1,5 +1,4 @@
 import createError from "http-errors";
-import Collection from '../models/Collection';
 
 import CollectionService from "../services/collection.service";
 

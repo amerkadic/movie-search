@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Helmet } from "react-helmet";
 import { useAlert } from 'react-alert'
 import { Link } from "react-router-dom";
+import { Spinner } from "react-bootstrap";
 
 import NavBar from "../components/nav-bar.component"
 import Card from "../components/card.component"
@@ -13,6 +14,7 @@ import { loadUser } from "../redux/auth/authAction";
 
 const Collection = () => {
     const collection = useSelector((state) => state.collection.items);
+    const isLoading = useSelector((state) => state.collection.loading);
     const alert = useAlert()
     const dispatch = useDispatch();
 
@@ -34,7 +36,7 @@ const Collection = () => {
             (
                 collection.reverse().map(item => (
                     <div key={item._id} className="collection-item" >
-                        <Link to={item.type === "tvshow" ? ('/api/tvshow/' + item.itemid) : ('/api/movie/' + item.itemid)}>
+                        <Link to={item.type === "tvshow" ? ('/tvshow/' + item.itemid) : ('/movie/' + item.itemid)}>
                             <Card
                                 title={item.name}
                                 image={item.poster ?
@@ -48,6 +50,12 @@ const Collection = () => {
             )
     );
 
+    const LoadingSpinner = (
+        <div className="loading-spinner">
+            <Spinner animation="border" variant="info" />
+        </div>
+    );
+
     return (
         <div>
             <Helmet>
@@ -55,7 +63,7 @@ const Collection = () => {
             </Helmet>
             <NavBar />
             <div className="collection-list">
-                {Items}
+                {isLoading ? LoadingSpinner : Items}
             </div>
         </div >
     )

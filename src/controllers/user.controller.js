@@ -1,13 +1,12 @@
 import bcrypt from 'bcryptjs';
-import config from '../config';
 import jwt from 'jsonwebtoken';
 import createError from "http-errors";
 
 import UserService from "../services/user.service";
-const { JWT_SECRET } = config;
 
 exports.loginUser = async function (req, res, next) {
     const { email, password } = req.body;
+
     try {
         var user = await UserService.getUserByEmail(email)
         if (!user) return next(createError(400, 'Invalid credentials'))
@@ -15,7 +14,7 @@ exports.loginUser = async function (req, res, next) {
         const isMatch = await bcrypt.compare(password, user.password);
         if (!isMatch) return next(createError(400, 'Invalid credentials'))
 
-        const token = jwt.sign({ id: user._id }, JWT_SECRET, { expiresIn: 3600 });
+        const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: 3600 });
 
         res.status(200).json({
             token,
@@ -33,6 +32,7 @@ exports.loginUser = async function (req, res, next) {
 
 exports.registerUser = async function (req, res, next) {
     const { name, email, password } = req.body;
+
     try {
         var user = await UserService.getUserByEmail(email)
         if (user) return next(createError(400, 'User already exist'))
@@ -41,7 +41,7 @@ exports.registerUser = async function (req, res, next) {
         const hash = await bcrypt.hash(password, salt);
 
         var savedUser = await UserService.saveUser(name, email, hash)
-        const token = jwt.sign({ id: savedUser._id }, JWT_SECRET, {
+        const token = jwt.sign({ id: savedUser._id }, process.env.JWT_SECRET, {
             expiresIn: 3600
         });
 
