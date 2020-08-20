@@ -2,7 +2,7 @@
 
 MovieDB Search App  is a responsive MERN app by using Redux, React hooks, JWT, etc. that load data via [The Movie Database (TMDb) API](https://www.themoviedb.org/documentation/api).
 
-![](https://i.imgur.com/E1KN256.mp4)
+![](https://s7.gifyu.com/images/E1KN256---Imgur.gif)
 
 ## Demo
 [MovieDB - Live DEMO](https://guarded-headland-38373.herokuapp.com)
