@@ -1,10 +1,10 @@
 import React from "react"
 import { useDispatch, useSelector } from 'react-redux';
 import { Navbar, Nav } from "react-bootstrap";
-import { logout } from "../redux/auth/authAction";
-import logo from "../assets/logo.png";
 import { NavLink, Link } from "react-router-dom";
 
+import { logout } from "../redux/auth/authAction";
+import logo from "../assets/logo.png";
 
 const NavigationBar = () => {
   const auth = useSelector((state) => state.auth);
@@ -39,7 +39,6 @@ const NavigationBar = () => {
       </Nav.Item>
     </div >
   );
-
 
   return (
     <div className="nav-bar">

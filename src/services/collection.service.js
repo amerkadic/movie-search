@@ -35,7 +35,6 @@ exports.saveItem = async function (userid, name, poster, type, itemid) {
     }
 }
 
-
 exports.deleteItem = async function (_id) {
     try {
         const items = await Collection.deleteOne({ _id });

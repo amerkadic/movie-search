@@ -12,7 +12,6 @@ export const fetchMovies = () => dispatch => {
     );
 };
 
-
 export const MovieSearch = (q) => dispatch => {
   dispatch(setLoading());
   fetch('https://api.themoviedb.org/3/search/movie?api_key=c8271eff138deb485c3915b7f70b6963&language=en-US&page1&query=' + q)

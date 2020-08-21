@@ -1,8 +1,8 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import { useDispatch } from 'react-redux';
+
 import { MovieSearch, fetchMovies } from '../redux/movie/movieAction'
 import { TvshowSearch, fetchTvshow } from '../redux/tvshow/tvshowAction'
-import { useEffect, useState } from "react";
 
 const Search = () => {
     const [search, setSearch] = useState("");

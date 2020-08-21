@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react"
 import ReactPlayer from "react-player";
+import { Helmet } from "react-helmet";
 
 import Details from "../components/details.component";
-import { Helmet } from "react-helmet";
 
 const TVShowDetails = (props) => {
   const [detail, setDetail] = useState([]);

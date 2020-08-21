@@ -1,8 +1,8 @@
 import { Router } from 'express';
 import auth from '../middlewares/auth';
-const router = Router();
-
 import CollectionController from "../controllers/collection.contoller";
+
+const router = Router();
 
 router.get('/', auth, CollectionController.getCollection)
 router.post('/add', auth, CollectionController.addInCollection)

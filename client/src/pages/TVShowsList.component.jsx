@@ -19,7 +19,6 @@ const TVShowsList = () => {
   return (
     <div>
       <Helmet><title>TV Shows</title></Helmet>
-
       <NavBar />
       <Search />
       <div className="tvshow-list">

@@ -64,7 +64,6 @@ const SignUp = () => {
         setConfirmPassword(e.target.value)
     };
 
-
     return (
         <div className='sign-up'>
             <h2 className='title'>I do not have a account</h2>
