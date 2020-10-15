@@ -36,11 +36,11 @@ const Details = ({ name, type, trailer, detail }) => {
             <div className="details-overview">
                 {detail.overview}
             </div>
-            <div>
+            <div className="add-text-disabled">
                 {auth.isAuthenticated ? <button className="add-collection-button" onClick={handleCollection}>Add in collection</button>
                     : (<div>
-                        <button className="add-collection-disabled" disabled>Add in collection</button>
-                        <h5 className="text-disabled">You have to be logged in to add in collection</h5>
+                        <button className="add-collection-disabled" disabled>Add to collection</button>
+                        <h5 className="text-disabled">You have to be logged in</h5>
                     </div>)
                 }
             </div>

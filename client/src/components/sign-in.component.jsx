@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useAlert } from "react-alert";
 import { useHistory } from "react-router-dom";
 
 import FormInput from './form-input.component';
@@ -12,34 +11,14 @@ const SignIn = () => {
     const dispatch = useDispatch();
     const [password, setPassword] = useState("");
     const auth = useSelector((state) => state.auth);
-    const alert = useAlert();
-    const [initialRender, setInitialRender] = useState(false);
 
-    const handleSubmit = async e => {
+    const handleSubmit = e => {
         e.preventDefault();
-        await dispatch(login(email, password));
-        setTimeout(() => {
-            setInitialRender(true);
-        }, 1000);
-    };
-
-    useEffect(() => {
-        if (initialRender) {
-            if (auth.isAuthenticated) {
-                alert.show('Logged in', {
-                    timeout: 2000,
-                    type: 'success',
-                })
-                history.push('/');
-            }
-            else {
-                alert.show('Fail to log in', {
-                    timeout: 2000,
-                    type: 'error',
-                })
-            }
+        dispatch(login(email, password));
+        if (auth.isAuthenticated) {
+            history.push('/');
         }
-    }, [auth.isAuthenticated, initialRender, alert, history]);
+    };
 
     const handleChangeEmail = e => {
         setEmail(e.target.value)

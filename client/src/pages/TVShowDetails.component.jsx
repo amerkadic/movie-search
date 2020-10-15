@@ -20,7 +20,8 @@ const TVShowDetails = (props) => {
       .then(res => res.json())
       .then(trailer => {
         if (trailer.results[0] !== undefined)
-          setTrailer(<ReactPlayer url={'https://www.youtube.com/watch?v=' + trailer.results[0].key} />)
+          setTrailer(<ReactPlayer className="react-player" url={'https://www.youtube.com/watch?v=' + trailer.results[0].key} width='100%'
+            height='100%' />)
       }
       );
   }, [id]);
@@ -29,7 +30,7 @@ const TVShowDetails = (props) => {
   return (
     <div className="movie-details">
       <Helmet>
-        <title>TV Show details</title>
+        <title>{detail.name}</title>
       </Helmet>
       <Details name={detail.name} type="tvshow" trailer={trailer} detail={detail} />
     </div>

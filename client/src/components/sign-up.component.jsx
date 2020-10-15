@@ -16,37 +16,22 @@ const SignUp = () => {
     const dispatch = useDispatch();
     const auth = useSelector((state) => state.auth);
     const alert = useAlert();
-    const [initialRender, setInitialRender] = useState(false);
 
-    const handleSubmit = async e => {
+    const handleSubmit = e => {
         e.preventDefault();
-        await dispatch(register(displayName, email, password));
         if (password !== confirmPassword) {
-            alert("Passwords don't match");
-            return;
+            alert.show("Password does not match");
         }
-        setTimeout(() => {
-            setInitialRender(true);
-        }, 1000);
+        else {
+            dispatch(register(displayName, email, password));
+        }
     };
 
     useEffect(() => {
-        if (initialRender) {
-            if (auth.isAuthenticated) {
-                alert.show('Logged in', {
-                    timeout: 2000,
-                    type: 'success',
-                })
-                history.push('/');
-            }
-            else {
-                alert.show('Fail to log in', {
-                    timeout: 2000,
-                    type: 'error',
-                })
-            }
+        if (auth.isAuthenticated) {
+            history.push('/');
         }
-    }, [auth.isAuthenticated, initialRender, alert, history]);
+    }, [auth.isAuthenticated, history]);
 
     const handleChangeName = e => {
         setDisplayName(e.target.value)

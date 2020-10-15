@@ -20,14 +20,15 @@ const MovieDetails = (props) => {
       .then(res => res.json())
       .then(trailer => {
         if (trailer.results[0] !== undefined)
-          setTrailer(<ReactPlayer url={'https://www.youtube.com/watch?v=' + trailer.results[0].key} />)
+          setTrailer(<ReactPlayer className="react-player" url={'https://www.youtube.com/watch?v=' + trailer.results[0].key} width='100%'
+            height='100%' />)
       }
       );
   }, [id]);
 
   return (
     <div className="movie-details">
-      <Helmet><title>Movie details</title></Helmet>
+      <Helmet><title>{detail.title}</title></Helmet>
       <Details name={detail.title} type="movie" trailer={trailer} detail={detail} />
     </div>
   )
